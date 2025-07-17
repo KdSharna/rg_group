@@ -1,0 +1,16 @@
+trigger:
+- main  # Jab main branch me push hoga tab trigger karega
+
+pool:
+  name: My_todo_agent  # ✅ Tera self-hosted agent pool
+
+steps:
+- task: AzureCLI@2
+  displayName: 'Create Azure Resource Group'
+  inputs:
+    azureSubscription: 'my_service'  # ✅ Service connection name (confirmed)
+    scriptType: 'ps'                 # ✅ Windows agent ke liye PowerShell
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      Write-Host "Creating Resource Group..."
+      az group create --name paddu --location eastus
