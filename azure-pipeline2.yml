@@ -1,0 +1,16 @@
+trigger:
+- main
+
+pool:
+  name: My_todo_agent
+
+steps:
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'Your-Service-Connection-Name'  # yeh tu service connection ka naam dale
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      echo "Creating Resource Group..."
+      az group create --name myResourceGroup --location eastus
+  displayName: 'Create Azure Resource Group'
