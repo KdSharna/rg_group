@@ -1,14 +1,14 @@
 trigger:
-- main
+- main  # Jab main branch me push hoga tab trigger karega
 
 pool:
-  name: My_todo_agent
+  name: My_todo_agent  # ✅ Tera self-hosted agent pool
 
 steps:
 - task: AzureCLI@2
   inputs:
-    azureSubscription: 'my_service'   # ✅ tera actual service connection name
-    scriptType: 'ps'                  # ✅ PowerShell use karo, bash mat karo
+    azureSubscription: 'my_service'  # ✅ Tera service connection ka exact naam
+    scriptType: 'ps'                 # ✅ PowerShell, kyunki Windows agent hai
     scriptLocation: 'inlineScript'
     inlineScript: |
       Write-Host "Creating Resource Group..."
