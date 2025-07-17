@@ -7,10 +7,10 @@ pool:
 steps:
 - task: AzureCLI@2
   inputs:
-    azureSubscription: 'Your-Service-Connection-Name'  # yeh tu service connection ka naam dale
+    azureSubscription: 'my_service'  # yeh tu service connection ka naam dale
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
       echo "Creating Resource Group..."
-      az group create --name myResourceGroup --location eastus
+      az group create --name paddu --location eastus2
   displayName: 'Create Azure Resource Group'
